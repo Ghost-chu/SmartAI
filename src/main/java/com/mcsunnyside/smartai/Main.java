@@ -97,7 +97,7 @@ public class Main extends JavaPlugin implements Listener {
 					LivingEntity livingMob = null;
 					if(mob instanceof LivingEntity) {
 						livingMob = (LivingEntity)mob;
-						getLogger().info(livingMob.getType().name());
+						debug(livingMob.getType().name());
 					}else {
 						//Something not livingEntity, Removed from list.
 						debug("Missing can't control entity from list...");
