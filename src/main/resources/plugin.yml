@@ -1,0 +1,10 @@
+name: SmartAI
+version: ${version}
+api-version: 1.13
+author: Ghost_chu
+main: com.mcsunnyside.smartai.Main
+commands:
+  smartai:
+permissions:
+  smartai.admin:
+    default: op

@@ -1,0 +1,47 @@
+#If you not know what is debug,DON'T TURN IT!
+debug: false
+
+#When TPS low that lowestTPS, SmartAI will start control mobs AI.
+lowestTPS: 17.49
+
+#How long time too check once tps and toggle mob ai? You not should set <100 (If you have many mob, You should set kind of bigger)
+checktick: 600
+
+#Enable nametag can tell player this mobAI has disabled,But when your have too many mobs, Turn on this maybe will make a little lag.
+useAIDisabledTag: true
+tagName: Disabled AI
+
+#You should only add easy make TPS low entity(Tuetle Dolphin) and easy collect in same chunks entity(COW CHICKEN and OTHER).
+#If you set too many mob, Will make your server kind of lag :( 
+#Don't add no-AI entity in this list.
+entity: 
+  - ZOMBIE
+  - SKELETON
+  - DROWNED
+  - SHEEP
+  - COW
+  - PIG
+  - CHICKEN
+  - CREEPER
+  - VILLAGER
+  - WOLF
+  - SPIDER
+  - CAVE_SPIDER
+  - BLAZE
+  - GHAST
+  - SLIME
+  - GUARDIAN
+  - RABBIT
+  - SQUID
+  - WITCH
+  - ZOMBIE_VILLAGER
+  - PHANTOM
+  - BAT
+  - PIG_ZOMBIE
+  - ENDERMAN
+  - TURTLE
+  - COD
+  - PUFFERFISH
+  - SALMON
+  - TROPICAL_FISH
+  - DOLPHIN
