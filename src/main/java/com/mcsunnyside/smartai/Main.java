@@ -187,13 +187,13 @@ public class Main extends JavaPlugin implements Listener {
 					sender.sendMessage("Reloaded");
 					return true;
 				case "status":
-					sender.sendMessage("§aSmartAI status §b>> §dLast sync task usage time: §e"+lastSynctaskTime+"ms§d, Last async task usage time: §e"+lastASynctaskTime+"ms§d, Now have §e"+limitList.size()+" mobs §din control list, Mobs AI status now: §r"+getAIMode()+"§d in next check task, ServerTPS: §e"+tps+"§d, Mobs AI mode now: §e"+disableAI);
+					sender.sendMessage("§aSmartAI status §b>> §dLast sync task usage time: §e"+lastSynctaskTime+"ms§d, Last async task usage time: §e"+lastASynctaskTime+"ms§d, Now have §e"+limitList.size()+" mobs §din control list, Mobs AI status now: §r"+getAIMode()+"§d in next check task, ServerTPS: §e"+tps+"§d, Mobs disabled AI mode now: §e"+disableAI);
 					return true;
 				default:
 					return true;
 				}
 			}else if(args.length == 0) {
-				sender.sendMessage("§aSmartAI status §b>> §dLast sync task usage time: §e"+lastSynctaskTime+"ms§d, Last async task usage time: §e"+lastASynctaskTime+"ms§d, Now have §e"+limitList.size()+" mobs §din control list, Mobs AI will switch to: §r"+getAIMode()+"§d in next check task, ServerTPS: §e"+tps+"§d, Mobs AI mode now: §e"+disableAI);
+				sender.sendMessage("§aSmartAI status §b>> §dLast sync task usage time: §e"+lastSynctaskTime+"ms§d, Last async task usage time: §e"+lastASynctaskTime+"ms§d, Now have §e"+limitList.size()+" mobs §din control list, Mobs AI will switch to: §r"+getAIMode()+"§d in next check task, ServerTPS: §e"+tps+"§d, Mobs AI disabled mode now: §e"+disableAI);
 				return true;
 			}else {
 				return true;
