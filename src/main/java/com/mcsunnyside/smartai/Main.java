@@ -297,8 +297,8 @@ public class Main extends JavaPlugin implements Listener {
 		try {
 			double[] tps = ((double[]) tpsField.get(serverInstance));
 
-			if (tps[time] > 20) {
-				tps[time] = 20;
+			if (tps[time] > 20.0) {
+				tps[time] = 20.0;
 			}
 			
 			return format.format(tps[time]);
