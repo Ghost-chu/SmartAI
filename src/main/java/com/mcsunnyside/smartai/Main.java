@@ -187,13 +187,13 @@ public class Main extends JavaPlugin implements Listener {
 					sender.sendMessage("Reloaded");
 					return true;
 				case "status":
-					sender.sendMessage("¡ìaSmartAI status ¡ìb>> ¡ìdLast sync task usage time: ¡ìe"+lastSynctaskTime+"ms¡ìd, Last async task usage time: ¡ìe"+lastASynctaskTime+"ms¡ìd, Now have ¡ìe"+limitList.size()+" mobs ¡ìdin control list, Mobs AI status now: ¡ìr"+getAIMode()+"¡ìd, ServerTPS: ¡ìe"+tps);
+					sender.sendMessage("Â§aSmartAI status Â§b>> Â§dLast sync task usage time: Â§e"+lastSynctaskTime+"msÂ§d, Last async task usage time: Â§e"+lastASynctaskTime+"msÂ§d, Now have Â§e"+limitList.size()+" mobs Â§din control list, Mobs AI status now: Â§r"+getAIMode()+"Â§d, ServerTPS: Â§e"+tps);
 					return true;
 				default:
 					return true;
 				}
 			}else if(args.length == 0) {
-				sender.sendMessage("¡ìaSmartAI status ¡ìb>> ¡ìdLast sync task usage time: ¡ìe"+lastSynctaskTime+"ms¡ìd, Last async task usage time: ¡ìe"+lastASynctaskTime+"ms¡ìd, Now have ¡ìe"+limitList.size()+" mobs ¡ìdin control list, Mobs AI status now: ¡ìr"+getAIMode()+"¡ìd, ServerTPS: ¡ìe"+tps);
+				sender.sendMessage("Â§aSmartAI status Â§b>> Â§dLast sync task usage time: Â§e"+lastSynctaskTime+"msÂ§d, Last async task usage time: Â§e"+lastASynctaskTime+"msÂ§d, Now have Â§e"+limitList.size()+" mobs Â§din control list, Mobs AI status now: Â§r"+getAIMode()+"Â§d, ServerTPS: Â§e"+tps);
 				return true;
 			}else {
 				return true;
@@ -219,9 +219,9 @@ public class Main extends JavaPlugin implements Listener {
 	}
 	private String getAIMode() {
 		if(disableAI) {
-			return "¡ìcLow TPS(Disabled AI)";
+			return "Â§cLow TPS(Disabled AI)";
 		}else {
-			return "¡ìaHigh TPS(Enabled AI)";
+			return "Â§aHigh TPS(Enabled AI)";
 		}
 	}
 	@EventHandler
@@ -229,6 +229,7 @@ public class Main extends JavaPlugin implements Listener {
 		for (Entity entity : e.getChunk().getEntities()) {
 			if(entityTypeCheck(entity)) {
 				limitList.add(entity.getUniqueId());
+				toggleAI(((LivingEntity)entity), disableAI);
 			}
 		}
 	}
@@ -264,6 +265,7 @@ public class Main extends JavaPlugin implements Listener {
 		if(entityTypeCheck(e.getEntity())) {
 			if(entityTypeCheck(e.getEntity())) {
 				limitList.add(e.getEntity().getUniqueId());
+				toggleAI(((LivingEntity)e.getEntity()), disableAI);
 			}
 		}
 		
