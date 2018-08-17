@@ -226,7 +226,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 	private void addMob2List(Entity entity) {
 		if(entityTypeCheck(entity)) {
-			addMob2List(entity);
+			limitList.add(entity.getUniqueId());
 			toggleAI((LivingEntity)entity, disableAI);
 		}
 		
