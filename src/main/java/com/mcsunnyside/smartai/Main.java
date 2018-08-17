@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.swing.text.AsyncBoxView;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -24,6 +25,7 @@ import org.bukkit.event.world.ChunkUnloadEvent;
 import org.bukkit.event.world.WorldUnloadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
 public class Main extends JavaPlugin implements Listener {
 	ArrayList<UUID> limitList = new ArrayList<>();
@@ -40,6 +42,8 @@ public class Main extends JavaPlugin implements Listener {
     boolean useDisabledAITag;
     String tagName;
     boolean debug;
+    BukkitTask sync = null;
+    BukkitTask async = null;
 	@Override
 	public void onEnable() {
 		saveDefaultConfig();
@@ -78,7 +82,7 @@ public class Main extends JavaPlugin implements Listener {
 				
 			}
 		}
-		new BukkitRunnable() {
+		sync = new BukkitRunnable() {
 			@Override
 			public void run() {
 				long time = System.currentTimeMillis();
@@ -131,7 +135,7 @@ public class Main extends JavaPlugin implements Listener {
 				lastSynctaskTime = System.currentTimeMillis()-time;
 			}
 		}.runTaskTimer(this, 600, 600);
-		new BukkitRunnable() {
+		async = new BukkitRunnable() {
 			@Override
 			public void run() {
 				//ASync task,Scan all in world mob, Because not all mobs spawn event can be listend.
@@ -216,6 +220,8 @@ public class Main extends JavaPlugin implements Listener {
 					
 				}
 		}
+			sync.cancel();
+			async.cancel();
 	}
 	private String getAIMode() {
 		if(disableAI) {
