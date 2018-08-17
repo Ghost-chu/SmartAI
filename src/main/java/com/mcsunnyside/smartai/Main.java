@@ -130,7 +130,7 @@ public class Main extends JavaPlugin implements Listener {
 				removeingList.clear();
 				lastSynctaskTime = System.currentTimeMillis()-time;
 			}
-		}.runTaskTimer(this, 600, 600);
+		}.runTaskTimer(this, getConfig().getInt("checktick"), getConfig().getInt("checktick"));
 		new BukkitRunnable() {
 			@Override
 			public void run() {
