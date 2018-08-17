@@ -35,7 +35,7 @@ public class Main extends JavaPlugin implements Listener {
     private Field tpsField;
     private long lastSynctaskTime;
     private long lastASynctaskTime;
-    double tps;
+    double tps = 20.0;
     boolean disableAI = false;
     boolean useDisabledAITag;
     String tagName;
