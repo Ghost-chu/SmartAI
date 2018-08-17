@@ -72,7 +72,7 @@ public class Main extends JavaPlugin implements Listener {
 						((LivingEntity)entity).setCustomNameVisible(false);
 					}
 					if(entityTypeCheck(entity)) {
-						limitList.add(entity.getUniqueId());
+						addMob2List(entity);
 					}
 				}
 				
@@ -143,7 +143,7 @@ public class Main extends JavaPlugin implements Listener {
 						for (Entity entity : chunk.getEntities()) {
 							if(entityTypeCheck(entity)) {
 								if(!limitList.contains(entity.getUniqueId())){
-									limitList.add(entity.getUniqueId());
+									addMob2List(entity);
 									debug("Added a mob in list from world: "+entity.getUniqueId().toString());
 								}
 							}
@@ -224,11 +224,18 @@ public class Main extends JavaPlugin implements Listener {
 			return "¡ìaHigh TPS(Enabled AI)";
 		}
 	}
+	private void addMob2List(Entity entity) {
+		if(entityTypeCheck(entity)) {
+			addMob2List(entity);
+			toggleAI((LivingEntity)entity, disableAI);
+		}
+		
+	}
 	@EventHandler
 	public void chunkLoad(ChunkLoadEvent e) {
 		for (Entity entity : e.getChunk().getEntities()) {
 			if(entityTypeCheck(entity)) {
-				limitList.add(entity.getUniqueId());
+				addMob2List(entity);
 			}
 		}
 	}
@@ -263,7 +270,7 @@ public class Main extends JavaPlugin implements Listener {
 	public void entitySpawn(EntitySpawnEvent e) {
 		if(entityTypeCheck(e.getEntity())) {
 			if(entityTypeCheck(e.getEntity())) {
-				limitList.add(e.getEntity().getUniqueId());
+				addMob2List(e.getEntity());
 			}
 		}
 		
